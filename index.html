@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumicalm - Light in Calm, Power in Silence</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand" style="flex-direction: column; align-items: flex-start; gap: 0.5rem; margin-bottom: 2.5rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div class="brand-icon" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6); width: 40px; height: 40px; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);">
+            <!-- Moon & Star crest SVG based on Image 1 -->
+            <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" style="width: 26px; height: 26px;">
+              <path d="M50 15 A 35 35 0 1 0 85 50 A 26 26 0 1 1 50 15" fill="#ffffff" stroke="none" />
+              <path d="M50 30 L 53 42 L 65 45 L 53 48 L 50 60 L 47 48 L 35 45 L 47 42 Z" fill="#ffffff" stroke="none" />
+              <circle cx="28" cy="28" r="2" fill="#ffffff" stroke="none" />
+              <circle cx="72" cy="72" r="1.5" fill="#ffffff" stroke="none" />
+            </svg>
+          </div>
+          <span class="brand-name" style="font-size: 1.6rem; letter-spacing: 0.05em; font-weight: 800;">LUMICALM</span>
+        </div>
+        <div class="brand-subtitle" style="font-size: 0.65rem; font-weight: 600; color: var(--text-secondary); letter-spacing: 0.06em; margin-top: 0.25rem;">
+          ルミカーム • LIGHT IN CALM, POWER IN SILENCE
+        </div>
+      </div>
+
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item active" data-tab="canvas">
+            <button class="nav-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+              หน้าฝึกหายใจโต้ตอบ
+            </button>
+          </li>
+          <li class="nav-item" data-tab="ai">
+            <button class="nav-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="22"></line>
+              </svg>
+              นักบำบัด AI ส่วนบุคคล
+            </button>
+          </li>
+          <li class="nav-item" data-tab="library">
+            <button class="nav-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+              คลังสเปกตรัมบำบัด
+            </button>
+          </li>
+          <li class="nav-item" data-tab="dev">
+            <button class="nav-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+              ผู้พัฒนา & ค่าดีบั๊ก
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Sidebar Audio Toggle footer -->
+      <div class="sidebar-footer">
+        <div class="audio-toggle-card">
+          <div class="audio-info">
+            <span class="audio-label">ระบบสังเคราะห์เสียง</span>
+            <span class="audio-desc">คลื่นความถี่เหนี่ยวนำจิต</span>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="audio-switch">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+
+      <!-- TAB 1: INTERACTIVE BREATHING CANVAS -->
+      <section class="tab-panel active" id="tab-pane-canvas">
+        <div class="breathing-layout">
+          
+          <!-- Central Reactor Core Panel (Seamless blending, no card background) -->
+          <div class="canvas-panel" data-phase="idle">
+            <div class="circadian-wave-container" style="position: relative; display: flex; align-items: center; justify-content: center; width: 340px; height: 340px;">
+
+              <!-- Atmospheric Background Layers -->
+              <div class="bg-stars"></div>
+              <div class="bg-fog"></div>
+              <div class="bg-gradient-bloom"></div>
+
+              <!-- Cinematic Background Nebula -->
+              <div class="reactor-chamber-nebula"></div>
+
+              <!-- Low-opacity Concentric Orbits & Segmented Arcs (Depth Enhancement) -->
+              <div class="hud-orbit orbit-1"></div>
+              <div class="hud-orbit orbit-2"></div>
+              <div class="hud-segmented-arc arc-left"></div>
+              <div class="hud-segmented-arc arc-right"></div>
+
+              <!-- Outermost Counter-Rotating Ring -->
+              <div class="hud-ring outer-counter"></div>
+
+              <!-- Main Outer Dashed Rotating Ring -->
+              <div class="hud-ring outer-dashed" id="circadian-ring"></div>
+
+              <!-- Breath-Synced Glow Ring -->
+              <div class="hud-ring glow-ring"></div>
+
+              <!-- Energy Ripple Ring (cycle completion flash) -->
+              <div class="hud-ring energy-ring" id="energy-ripple-ring"></div>
+
+              <!-- Compass Target Ticks (Slightly Shortened Crosshair) -->
+              <div class="hud-tick tick-n"></div>
+              <div class="hud-tick tick-e"></div>
+              <div class="hud-tick tick-s"></div>
+              <div class="hud-tick tick-w"></div>
+
+              <div class="hud-ring middle-metallic"></div>
+              <div class="hud-ring inner-gauge">
+                <svg class="hud-svg" viewBox="0 0 200 200">
+                  <circle class="hud-gauge-track" cx="100" cy="100" r="85"></circle>
+                  <circle class="hud-gauge-fill" id="hud-progress-arc" cx="100" cy="100" r="85"></circle>
+                </svg>
+              </div>
+
+              <!-- Energy Core Containment -->
+              <div class="energy-orb-container">
+                <canvas id="core-particles"></canvas>
+                <div class="reactor-core" id="breath-orb">
+                  <div class="reactor-glow"></div>
+                  <div class="reactor-inner-power"></div>
+                  
+                  <!-- Understated Internal HUD Detail (Richness Inside Circle) -->
+                  <div class="reactor-hud-overlay">
+                    <svg class="reactor-hud-svg" viewBox="0 0 100 100">
+                      <!-- Inner radial calibration ticks -->
+                      <g class="hud-inner-ticks">
+                        <line x1="50" y1="8" x2="50" y2="11" />
+                        <line x1="50" y1="89" x2="50" y2="92" />
+                        <line x1="8" y1="50" x2="11" y2="50" />
+                        <line x1="89" y1="50" x2="92" y2="50" />
+                        <line x1="20.5" y1="20.5" x2="22.5" y2="22.5" />
+                        <line x1="77.5" y1="77.5" x2="79.5" y2="79.5" />
+                        <line x1="20.5" y1="79.5" x2="22.5" y2="77.5" />
+                        <line x1="77.5" y1="22.5" x2="79.5" y2="20.5" />
+                      </g>
+                      <!-- Thin rotating concentric accent arcs -->
+                      <circle class="hud-inner-arc arc-1" cx="50" cy="50" r="38" stroke-dasharray="35 155" />
+                      <circle class="hud-inner-arc arc-2" cx="50" cy="50" r="33" stroke-dasharray="50 100" />
+                    </svg>
+                  </div>
+
+                  <!-- Phase-colour tint overlay (screen blend) -->
+                  <div class="phase-tint-overlay"></div>
+                </div>
+
+                <!-- Countdown & Bilingual Phase Overlay -->
+                <div class="orb-overlay-text">
+                  <div class="counter-wrapper">
+                    <span class="timer-countdown counter-a" id="timer-count">4</span>
+                    <span class="timer-countdown counter-b counter-hidden" id="timer-count-b" aria-hidden="true">4</span>
+                  </div>
+                  <div class="phase-label-wrapper">
+                    <span class="phase-label-thai" id="phase-name-thai"></span>
+                    <span class="phase-label" id="phase-name">เตรียมพร้อม</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Edge Vignette -->
+              <div class="vignette-overlay"></div>
+            </div>
+          </div>
+
+
+          <!-- Statistics and Control Panel -->
+          <div class="glass-card control-panel">
+            <div class="therapy-status">
+              <div class="therapy-title" id="active-therapy-title">Stress Reduction (525nm)</div>
+              <div class="therapy-subtitle" id="active-therapy-tagline">คลื่นสีเขียวบำบัด ต้านกล้ามเนื้อหดเกร็ง ลดการตื่นตัวระดับฮอร์โมน</div>
+              
+              <div class="session-stats">
+                <div class="stat-item">
+                  <span class="stat-val" id="stat-sessions-val">0</span>
+                  <span class="stat-lbl">เซสชันสะสม</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-val" id="stat-minutes-val">0</span>
+                  <span class="stat-lbl">นาทีฝึกรวม</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recommendation details -->
+            <div class="therapy-status" style="margin-top:0; border-top: 1px solid var(--glass-border); padding-top: 1.5rem;">
+              <span class="input-label" style="display:block; margin-bottom:0.5rem;">คำแนะนำทางคลินิก (Clinical Guide)</span>
+              <p id="therapy-recommendation" style="font-size:0.85rem; color:var(--text-secondary); line-height:1.5; margin-bottom:0.5rem;"></p>
+              <div style="display:flex; align-items:center; gap:0.5rem; font-size:0.8rem; color:var(--cct-color); font-weight:600;">
+                <svg style="width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2" viewBox="0 0 24 24"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+                <span id="therapy-cct-label">5000K - Forest Green Wave</span>
+              </div>
+            </div>
+
+            <!-- Actions buttons -->
+            <div class="play-controls">
+              <button class="btn-primary" id="play-btn">
+                <svg id="play-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+                <span id="play-btn-text">ฝึกการหายใจ</span>
+              </button>
+              <button class="btn-secondary" id="reset-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+
+      <!-- TAB 2: GEMINI AI MINDFUL THERAPIST -->
+      <section class="tab-panel" id="tab-pane-ai">
+        <div class="ai-layout">
+          
+          <!-- Therapist Inputs -->
+          <div class="glass-card ai-input-pane">
+            <div class="brand" style="margin-bottom:1rem;">
+              <div class="brand-icon" style="background: linear-gradient(135deg, #a78bfa, #f472b6);">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"></path>
+                  <path d="M12 7v10M8 12h8"></path>
+                </svg>
+              </div>
+              <span class="brand-name">Mindful Therapist</span>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label" for="ai-feeling-input">บอกสภาวะจิตใจและอารมณ์ของคุณในเวลานี้</label>
+              <textarea class="textarea-input" id="ai-feeling-input" placeholder="ตัวอย่าง: เครียดกังวลสะสมจากภาระงาน หรือ เหนื่อยล้าสะสมอยากนอนหลับลึก หรือ ฟุ้งซ่านคิดวนเวียนอยากได้สมาธิ..."></textarea>
+            </div>
+
+            <!-- Developer/Credential input (local only) -->
+            <div class="input-group">
+              <label class="input-label" for="gemini-api-key">Google Gemini API Key (ถ้ามี)</label>
+              <input type="password" class="input-text" id="gemini-api-key" placeholder="AIzaSy... (คีย์จะจัดเก็บในเว็บบราวเซอร์ส่วนตัวของคุณเท่านั้น)">
+              <div class="api-status-badge">
+                <span class="status-dot offline" id="api-dot"></span>
+                <span id="api-status-label">Clinical Simulator (Offline Mode)</span>
+              </div>
+            </div>
+
+            <button class="btn-primary" id="ai-generate-btn" style="background: linear-gradient(135deg, #a78bfa, #818cf8); color:#ffffff; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);">
+              สังเคราะห์คลื่นบำบัดเฉพาะบุคคล
+            </button>
+          </div>
+
+          <!-- Therapist Responses -->
+          <div class="ai-result-pane">
+            
+            <!-- Health Infographics -->
+            <div class="glass-card infographic-card">
+              <div class="info-header">
+                <span class="info-title" id="info-title-text">ดัชนีทางสรีรวิทยาหลังบำบัด</span>
+                <span class="info-badge" id="info-shift-label">รักษาสมดุลระบบประสาทอัตโนมัติ</span>
+              </div>
+              
+              <div class="chart-bar-group">
+                <div class="chart-item cortisol">
+                  <div class="chart-label-row">
+                    <span class="chart-label" id="cortisol-label">ระดับคอร์ติซอล (Cortisol)</span>
+                    <span class="chart-value" id="cortisol-value">0%</span>
+                  </div>
+                  <div class="progress-track">
+                    <div class="progress-fill" id="cortisol-fill"></div>
+                  </div>
+                </div>
+
+                <div class="chart-item vagal">
+                  <div class="chart-label-row">
+                    <span class="chart-label" id="vagal-label">โทนประสาทเวกัส (Vagal Nerve Tone)</span>
+                    <span class="chart-value" id="vagal-value">0%</span>
+                  </div>
+                  <div class="progress-track">
+                    <div class="progress-fill" id="vagal-fill"></div>
+                  </div>
+                </div>
+
+                <div class="chart-item hr">
+                  <div class="chart-label-row">
+                    <span class="chart-label" id="hr-label">จังหวะอัตราการเต้นหัวใจ (Heart Rate)</span>
+                    <span class="chart-value" id="hr-value">0%</span>
+                  </div>
+                  <div class="progress-track">
+                    <div class="progress-fill" id="hr-fill"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="api-status-badge" style="border-top:1px solid var(--glass-border); padding-top: 0.75rem; justify-content:space-between;">
+                <span id="info-session-time">ความถี่ขั้นต่ำ: 5 นาที</span>
+                <span>คำเตือน: ผลจำลองตามเกณฑ์การตอบสนองระบบอวัยวะ</span>
+              </div>
+            </div>
+
+            <!-- Affirmation & Therapy Quote -->
+            <div class="glass-card response-card">
+              <h4 id="ai-therapy-name" style="font-family:var(--font-title); font-size:1.3rem;">รอการวิเคราะห์ข้อมูลความเครียด...</h4>
+              <p id="ai-therapy-tagline" style="font-size:0.85rem; color:var(--text-secondary);"></p>
+              <p id="ai-therapy-reason" style="font-size:0.85rem; line-height:1.5; color:var(--text-secondary);"></p>
+              <div class="response-quote" id="ai-therapy-affirmation">"สภาวะจิตวิทยาคลินิกรอบรับรู้จะพร้อมแสดงผลเมื่อผ่านการวิเคราะห์"</div>
+
+              <div id="ai-action-area"></div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- TAB 3: CHROMOTHERAPY & PRESETS LIBRARY -->
+      <section class="tab-panel" id="tab-pane-library">
+        <div class="library-layout" style="grid-template-columns: 1fr; gap: 3rem; max-width: 1100px; margin: 0 auto; width: 100%;">
+          
+          <!-- Top: Chromotherapy Presets Grid -->
+          <div class="preset-section">
+            <h3 class="section-title" style="font-size: 1.6rem; letter-spacing: -0.02em; margin-bottom: 1.5rem;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+              </svg>
+              คลังแสงบำบัดมาตรฐาน (Chromotherapy Waveforms)
+            </h3>
+            <div class="premium-presets-grid" id="chromotherapy-presets" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+              <!-- Dynamically populated from JS -->
+            </div>
+          </div>
+
+          <!-- Bottom: Breathing Rhythm Presets Grid -->
+          <div class="preset-section">
+            <h3 class="section-title" style="font-size: 1.6rem; letter-spacing: -0.02em; margin-bottom: 1.5rem;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 24px; height: 24px;">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+              </svg>
+              คลังจังหวะการฝึกสากล (Universal Breathing Rhythm Arsenal)
+            </h3>
+            <div class="premium-presets-grid" id="breathing-presets" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(480px, 1fr)); gap: 1.5rem;">
+              <!-- Dynamically populated from JS -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- TAB 4: DEVELOPER ASSISTANT TOOLS -->
+      <section class="tab-panel" id="tab-pane-dev">
+        <div class="dev-layout">
+          
+          <!-- Upper Console Logs -->
+          <div class="glass-card" style="display:flex; flex-direction:column; gap:0.5rem;">
+            <div class="dev-header">
+              <span style="font-weight:600; font-size:1.1rem; font-family:var(--font-title);">เรียลไทม์ดีบั๊กคอนโซล (System Logs)</span>
+              <span style="font-size:0.75rem; color:var(--text-muted);">เอนจิ้นสังเคราะห์และสถานะ API</span>
+            </div>
+            <div class="console-pane" id="dev-console">
+              <!-- Dynamically written from console hooks -->
+            </div>
+          </div>
+
+          <!-- Lower Spec files -->
+          <div class="glass-card spec-pane">
+            <div style="display:flex; gap:0.5rem; margin-bottom:1rem; border-bottom:1px solid var(--glass-border); padding-bottom:0.75rem;">
+              <button class="nav-btn spec-tab active" id="spec-tab-kotlin-service" style="padding:0.4rem 0.8rem; font-size:0.8rem; width:auto;">
+                GeminiService.kt
+              </button>
+              <button class="nav-btn spec-tab" id="spec-tab-kotlin-main" style="padding:0.4rem 0.8rem; font-size:0.8rem; width:auto;">
+                MainActivity.kt (Specs)
+              </button>
+              <span style="margin-left:auto; font-size:0.75rem; color:var(--text-muted); align-self:center;">
+                โครงสร้างแกนกลางต้นฉบับ (Kotlin Android Specs)
+              </span>
+            </div>
+            <pre class="spec-code" id="spec-code-pane"></pre>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="audio.js"></script>
+  <script src="api.js"></script>
+  <script src="app.js"></script>
+  <script>
+    // Instantiate application on window load
+    window.addEventListener('DOMContentLoaded', () => {
+      window.app = new LunicalmApp();
+      window.app.init();
+    });
+  </script>
+</body>
+</html>
