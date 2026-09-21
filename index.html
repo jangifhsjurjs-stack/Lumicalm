@@ -13,7 +13,7 @@
     <header class="app-header">
       <!-- Brand (left) -->
       <div class="header-left">
-        <div class="header-brand" style="display: flex; align-items: center; gap: 0.75rem;">
+        <a href="home.html" class="header-brand" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit;">
           <div class="brand-icon" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6); width: 32px; height: 32px; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
             <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px;">
               <path d="M50 15 A 35 35 0 1 0 85 50 A 26 26 0 1 1 50 15" fill="#ffffff" stroke="none" />
@@ -23,7 +23,7 @@
             </svg>
           </div>
           <span class="brand-name" style="font-size: 1.3rem; letter-spacing: 0.05em; font-weight: 800;">LUMICALM</span>
-        </div>
+        </a>
       </div>
       <!-- Controls (right) -->
       <div class="header-right">
@@ -50,7 +50,7 @@
     <!-- Sidebar Navigation Drawer -->
     <aside class="sidebar" id="sidebar-drawer">
       <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2.5rem; width: 100%;">
-        <div class="brand" style="flex-direction: column; align-items: flex-start; gap: 0.5rem; margin-bottom: 0;">
+        <a href="home.html" class="brand" style="flex-direction: column; align-items: flex-start; gap: 0.5rem; margin-bottom: 0; text-decoration: none; color: inherit;">
           <div style="display: flex; align-items: center; gap: 0.75rem;">
             <div class="brand-icon" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6); width: 40px; height: 40px; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);">
               <!-- Moon & Star crest SVG based on Image 1 -->
@@ -66,7 +66,7 @@
           <div class="brand-subtitle" style="font-size: 0.65rem; font-weight: 600; color: var(--text-secondary); letter-spacing: 0.06em; margin-top: 0.25rem;">
             ルミคาร์ม • LIGHT IN CALM, POWER IN SILENCE
           </div>
-        </div>
+        </a>
         <button class="close-drawer-btn" id="close-drawer-btn" aria-label="Close Navigation Drawer">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px;">
             <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -77,6 +77,15 @@
 
       <nav>
         <ul class="nav-links">
+          <li class="nav-item">
+            <a href="home.html" class="nav-btn" style="text-decoration: none;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+              <span data-lang-key="nav-home-link">หน้าแรก</span>
+            </a>
+          </li>
           <li class="nav-item active" data-tab="canvas">
             <button class="nav-btn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -136,7 +145,7 @@
           
           <!-- Central Lunar Breathing Chamber Panel -->
           <div class="canvas-panel lunar-chamber" data-phase="idle">
-            <div class="circadian-wave-container" style="position: relative; display: flex; align-items: center; justify-content: center; width: 400px; height: 400px;">
+            <div class="circadian-wave-container" style="position: relative; display: flex; align-items: center; justify-content: center;">
 
               <!-- Atmospheric Cosmic Background Layers -->
               <div class="bg-stars"></div>
@@ -393,9 +402,15 @@
           
           <!-- Therapist Inputs -->
           <div class="glass-card ai-input-pane">
-            <div class="brand" style="margin-bottom:1rem;">
-              <img src="lumi-avatar.png" alt="Lumi" style="width: 36px; height: 36px; border-radius: 12px; object-fit: cover; border: 2px solid rgba(167, 139, 250, 0.7); box-shadow: 0 4px 15px rgba(167, 139, 250, 0.4); flex-shrink: 0;">
-              <span class="brand-name">Mindful Therapist</span>
+            <div class="brand" style="margin-bottom:1.2rem; display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap; gap: 0.75rem;">
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <img src="lumi-avatar.png" alt="Lumi" style="width: 36px; height: 36px; border-radius: 12px; object-fit: cover; border: 2px solid rgba(167, 139, 250, 0.7); box-shadow: 0 4px 15px rgba(167, 139, 250, 0.4); flex-shrink: 0;">
+                <span class="brand-name">Mindful Therapist</span>
+              </div>
+              <button type="button" class="btn-secondary" id="ai-quick-checkin-btn" style="padding: 0.45rem 0.85rem; font-size: 0.8rem; display: flex; align-items: center; gap: 0.45rem; border-radius: 8px; cursor: pointer;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 14px; height: 14px;"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                <span>เช็คอินอารมณ์ด่วน (Quick Check-in)</span>
+              </button>
             </div>
 
             <div class="input-group">
