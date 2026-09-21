@@ -351,7 +351,10 @@ class LunicalmApp {
     this.applyBreathingTechnique(this.currentTechnique);
     this.updateStatsDisplay();
 
-    // 6. Initialize Particle System
+    // 6. Handle Initial Deep Linking URL Route
+    this.handleUrlRouting();
+
+    // 7. Initialize Particle System
     this.initParticles();
 
     this.logConsole("Lumicalm Web System fully initialized and ready", "success");
@@ -411,9 +414,7 @@ class LunicalmApp {
           const item = e.currentTarget.closest('.nav-item');
           if (item) {
             const tabId = item.dataset.tab;
-            if (tabId === 'ai') {
-              this.openFeelingModal();
-            } else if (tabId) {
+            if (tabId) {
               this.switchTab(tabId);
             }
             this.closeDrawer();
@@ -447,14 +448,34 @@ class LunicalmApp {
       aiGenerateBtn.addEventListener('click', () => this.runAiTherapist());
     }
 
+    // 5b. Quick Check-in button inside AI tab
+    const quickCheckinBtn = document.getElementById('ai-quick-checkin-btn');
+    if (quickCheckinBtn) {
+      quickCheckinBtn.addEventListener('click', () => this.openFeelingModal());
+    }
+
     // 6. Feeling Selector Modal Pop-up Init
     this.initFeelingModal();
 
     // 7. Feedback Panel initialization
     this.initFeedback();
+
+    // 8. Hash change & Popstate events for deep-linking
+    window.addEventListener('hashchange', () => this.handleUrlRouting());
+    window.addEventListener('popstate', () => this.handleUrlRouting());
   }
 
-  switchTab(tabId) {
+  handleUrlRouting() {
+    const rawHash = window.location.hash.replace(/^#/, '').toLowerCase();
+    const validTabs = ['canvas', 'ai', 'library', 'feedback'];
+    if (validTabs.includes(rawHash)) {
+      this.switchTab(rawHash, false);
+    }
+  }
+
+  switchTab(tabId, updateHash = true) {
+    if (!tabId) return;
+
     document.querySelectorAll('.nav-item').forEach(item => {
       if (item.dataset.tab === tabId) {
         item.classList.add('active');
@@ -470,6 +491,13 @@ class LunicalmApp {
         panel.classList.remove('active');
       }
     });
+
+    if (updateHash) {
+      const currentHash = window.location.hash.replace(/^#/, '').toLowerCase();
+      if (currentHash !== tabId) {
+        window.location.hash = tabId;
+      }
+    }
 
     this.logConsole(`Switched tab to: ${tabId.toUpperCase()}`, "info");
 
@@ -1129,7 +1157,6 @@ class LunicalmApp {
     if (cancelBtn) {
       cancelBtn.addEventListener('click', () => {
         this.closeFeelingModal();
-        this.switchTab('ai');
       });
     }
 
